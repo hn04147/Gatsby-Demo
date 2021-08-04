@@ -26,10 +26,10 @@ import ChunsikDance from "../videos/chunsik_dance.mp4"
 const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
-  // const screenHeight = screen.availHeight
+  // const screenHeight = document.body.clientHeight
 
   // useEffect(() => {
-  //   const onScroll = () => setArrowOpacity(1 - window.scrollY / (screen.availHeight * 0.8))
+  //   const onScroll = () => setArrowOpacity(1 - window.scrollY / (document.body.clientHeight * 0.8))
   //   window.addEventListener("scroll", onScroll)
   //   // console.log(isContact)
   //   // if (isContact) window.scrollTo({top: 10000, left: 0})
@@ -65,7 +65,7 @@ const MainPage = (props) => {
           position: "relative",
           height: "100vh",
           width: "100%",
-          //top: `${(150 * window.scrollY) / screen.availHeight}px`,
+          //top: `${(150 * window.scrollY) / document.body.clientHeight}px`,
           top: "0",
         }}
       >
@@ -73,7 +73,7 @@ const MainPage = (props) => {
           {/* <img
             src={KoreanPalace}
             style={{
-              width: screen.availWidth,
+              width: document.body.clientWidth,
               height: screenHeight,
               objectFit: "cover",
             }}
@@ -82,9 +82,9 @@ const MainPage = (props) => {
           <video
             src={ChunsikDance}
             style={{
-              width: screen.availWidth,
+              width: document.body.clientWidth,
               //height: screenHeight,
-              height: screen.availHeight,
+              height: document.body.clientHeight,
               objectFit: "cover",
               autoplay: "autoplay",
             }}
@@ -105,7 +105,7 @@ const MainPage = (props) => {
             onClick={() => {
               window.scrollTo({
                 //top: screenHeight,
-                top: screen.availHeight,
+                top: document.body.clientHeight,
                 left: 0,
                 behavior: "smooth",
               })
@@ -154,9 +154,9 @@ const MainPage = (props) => {
         <img
           src={MobileGrid}
           style={{
-            width: screen.availWidth,
+            width: document.body.clientWidth,
             //height: screenHeight,
-            height: screen.availHeight,
+            height: document.body.clientHeight,
             objectFit: "cover",
           }}
         />
@@ -372,9 +372,9 @@ const MainPage = (props) => {
           <img
             src={ContactMap}
             style={{
-              width: screen.availWidth,
+              width: document.body.clientWidth,
               //height: screenHeight,
-              height: screen.availHeight,
+              height: document.body.clientHeight,
               objectFit: "cover",
             }}
             alt="Contact Background"
