@@ -26,9 +26,11 @@ import ChunsikDance from "../videos/chunsik_dance.mp4"
 const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
+  const [screenWidth, setScreenWidth] = useState(375)
+  const [screenHeight, setScreenHeight] = useState(812)
   useEffect(() => {
-    const screenHeight = window.innerHeight
-    const screenWidth = window.innerWidth
+    setScreenHeight(window.innerHeight)
+    setScreenWidth(window.innerWidth)
   }, [])
   
 

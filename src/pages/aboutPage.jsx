@@ -27,9 +27,11 @@ const AboutPage = () => {
     slidesToScroll: 1
   }
 
+  const [screenWidth, setScreenWidth] = useState(375)
+  const [screenHeight, setScreenHeight] = useState(812)
   useEffect(() => {
-    const screenHeight = window.innerHeight
-    const screenWidth = window.innerWidth
+    setScreenHeight(window.innerHeight)
+    setScreenWidth(window.innerWidth)
   }, [])
 
   return (
