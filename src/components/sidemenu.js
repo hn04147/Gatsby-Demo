@@ -1,12 +1,12 @@
 import * as React from "react"
 import { useState } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const SideMenu = () => {
+const SideMenu = ({ isClose, setIsClose }) => {
 
 
   return (
@@ -33,19 +33,68 @@ const SideMenu = () => {
           <Link
             to="/mainPage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
+            onClick={() => {
+              setIsClose(!isClose)
+            }}
           >
-            <h3 style={{ fontFamily: "Roboto Condensed", }}>HOME</h3>
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>HOME</h3>
           </Link>
-          <h3 style={{ fontFamily: "Roboto Condensed", }}>CASESTUDIES</h3>
-          <h3 style={{ fontFamily: "Roboto Condensed", }}>ABOUT</h3>
+          <Link
+            to="/caseStudiesPage"
+            style={{ textDecoration: "none", color: "#FFFFFF" }}
+            onClick={() => {
+              setIsClose(!isClose)
+            }}
+          >
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>CASESTUDIES</h3>
+          </Link>
+          <Link
+            to="/aboutPage"
+            style={{ textDecoration: "none", color: "#FFFFFF" }}
+            onClick={() => {
+              setIsClose(!isClose)
+            }}
+          >
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>ABOUT</h3>
+          </Link>
           <Link
             to="/culturePage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
+            onClick={() => {
+              setIsClose(!isClose)
+            }}
           >
-            <h3 style={{ fontFamily: "Roboto Condensed", }}>CULTURE</h3>
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>CULTURE</h3>
           </Link>
-          <h3 style={{ fontFamily: "Roboto Condensed", }}>LAB</h3>
-          <h3 style={{ fontFamily: "Roboto Condensed", }}>CONTACT</h3>
+          <Link
+            to="/culturePage"
+            style={{ textDecoration: "none", color: "#FFFFFF" }}
+            onClick={() => {
+              setIsClose(!isClose)
+            }}
+          >
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>LAB</h3>
+          </Link>
+          {/* <Link
+            to="/mainPage"
+            style={{ textDecoration: "none", color: "#FFFFFF" }}
+            isContact={true}
+          >
+            <h3 style={{ fontFamily: "Roboto Condensed", }}>CONTACT</h3>
+          </Link> */}
+          <h3
+            style={{ fontFamily: "Roboto Condensed" }}
+            onClick={() => {
+              setIsClose(!isClose)
+              navigate("/mainPage", {
+                state: {
+                  isContact: true,
+                },
+              })
+            }}
+          >
+            CONTACT
+          </h3>
         </div>
 
         <div
@@ -65,7 +114,7 @@ const SideMenu = () => {
               height: "100%",
             }}
           >
-            <h5 style={{ fontFamily: "Roboto Condensed", }}>PixiJS</h5>
+            <h5 style={{ fontFamily: "Roboto Condensed" }}>PixiJS</h5>
           </Link>
           <Link
             to="https://apply.workable.com/goodboydigital/"
@@ -77,7 +126,7 @@ const SideMenu = () => {
               paddingRight: "40px",
             }}
           >
-            <h5 style={{ fontFamily: "Roboto Condensed", }}>Careers</h5>
+            <h5 style={{ fontFamily: "Roboto Condensed" }}>Careers</h5>
           </Link>
           <Link
             to="https://medium.com/goodboy-digital"
@@ -87,7 +136,7 @@ const SideMenu = () => {
               float: "left",
             }}
           >
-            <h5 style={{ fontFamily: "Roboto Condensed", }}>Blog</h5>
+            <h5 style={{ fontFamily: "Roboto Condensed" }}>Blog</h5>
           </Link>
         </div>
       </div>

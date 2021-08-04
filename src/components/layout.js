@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import "./layout.css"
 import { StaticImage } from "gatsby-plugin-image"
 import SideMenu from "../components/sidemenu"
+import GoodBoyLogo from "../images/gb_logo.png"
 
 const Layout = ({ children }) => {
   const [isClose, setIsClose] = useState(true)
@@ -24,7 +25,7 @@ const Layout = ({ children }) => {
             position: "fixed",
           }}
         >
-          <StaticImage src="../images/gb_logo.png" alt="GoodBoy Digital Logo" />
+          <img src={GoodBoyLogo} alt="GoodBoy Digital Logo" />
         </a>
 
         {/* THREE DOTS BUTTON */}
@@ -96,7 +97,7 @@ const Layout = ({ children }) => {
         
       </div>
       {isClose ? null : (
-        <SideMenu/>
+        <SideMenu setIsClose={setIsClose} isClose={isClose} />
       )}
     </div>
   )

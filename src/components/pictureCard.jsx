@@ -1,7 +1,7 @@
 import * as React from "react"
 import { navigate } from "gatsby"
 
-const PictureCard = ({ isBig, imgSource, textUp, textDown, imgHref="/" }) => {
+const PictureCard = ({ isBig, imgSource, textUp, textDown, onClick }) => {
   return (
     <div style={{ width: "100%", margin: "0 0 1em 0", padding: "0", display: "block" }}>
       
@@ -12,7 +12,7 @@ const PictureCard = ({ isBig, imgSource, textUp, textDown, imgHref="/" }) => {
           position: "relative",
           left: isBig ? "0" : "5%",
         }}
-        onClick={navigate(imgHref)}
+        onClick={onClick}
       >
         <div style={{ margin: "0 auto", padding: "0", height: "12em", zIndex: "2", position: "relative" }}>
           <img 
@@ -33,8 +33,8 @@ const PictureCard = ({ isBig, imgSource, textUp, textDown, imgHref="/" }) => {
             position: "relative",
             zIndex: "2",
           }}>
-          <p style={{fontFamily: "Roboto Condensed", margin: "1em 0 0 20px", padding: "0", fontSize: "13px" }}>{textUp}</p>
-          <h4 style={{fontFamily: "Roboto Condensed", margin: "0 0 1em 20px", padding: "0" }}>{textDown}</h4>
+          <p style={{color: "#FFFFFF", fontFamily: "Roboto Condensed", margin: "1em 0 0 20px", padding: "0", fontSize: "13px" }}>{textUp}</p>
+          <h4 style={{color: "#FFFFFF", fontFamily: "Roboto Condensed", margin: "0 0 1em 20px", padding: "0" }}>{textDown}</h4>
         </div>
         {isBig ? null : (
           <div
