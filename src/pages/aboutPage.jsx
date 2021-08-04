@@ -27,6 +27,11 @@ const AboutPage = () => {
     slidesToScroll: 1
   }
 
+  if (typeof window !== "undefined") {
+    const screenHeight = window.innerHeight
+    const screenWidth = screenWidth
+  }
+
   return (
     <Layout>
       <div
@@ -50,7 +55,7 @@ const AboutPage = () => {
             <img
               src={Background}
               style={{
-                width: document.body.clientWidth,
+                width: screenWidth,
                 height: "500px",
                 objectFit: "cover",
                 opacity: "0.75",
