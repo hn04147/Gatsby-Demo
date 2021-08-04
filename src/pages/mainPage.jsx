@@ -26,17 +26,17 @@ import ChunsikDance from "../videos/chunsik_dance.mp4"
 const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
-  const screenHeight = window.innerHeight
+  // const screenHeight = window.innerHeight
 
-  useEffect(() => {
-    const onScroll = () => setArrowOpacity(1 - window.scrollY / (window.innerHeight * 0.8))
-    window.addEventListener("scroll", onScroll)
-    // console.log(isContact)
-    // if (isContact) window.scrollTo({top: 10000, left: 0})
-    return function cleanup() {
-      window.removeEventListener("scroll", onScroll)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const onScroll = () => setArrowOpacity(1 - window.scrollY / (window.innerHeight * 0.8))
+  //   window.addEventListener("scroll", onScroll)
+  //   // console.log(isContact)
+  //   // if (isContact) window.scrollTo({top: 10000, left: 0})
+  //   return function cleanup() {
+  //     window.removeEventListener("scroll", onScroll)
+  //   }
+  // }, [])
 
   return (
     <Layout>
@@ -65,7 +65,8 @@ const MainPage = (props) => {
           position: "relative",
           height: "100vh",
           width: "100%",
-          top: `${(150 * window.scrollY) / window.innerHeight}px`,
+          //top: `${(150 * window.scrollY) / window.innerHeight}px`,
+          top: "0",
         }}
       >
         <div style={{ position: "absolute" }}>
@@ -82,7 +83,8 @@ const MainPage = (props) => {
             src={ChunsikDance}
             style={{
               width: window.innerWidth,
-              height: screenHeight,
+              //height: screenHeight,
+              height: window.innerHeight,
               objectFit: "cover",
               autoplay: "autoplay",
             }}
@@ -102,7 +104,8 @@ const MainPage = (props) => {
             }}
             onClick={() => {
               window.scrollTo({
-                top: screenHeight,
+                //top: screenHeight,
+                top: window.innerHeight,
                 left: 0,
                 behavior: "smooth",
               })
@@ -152,7 +155,8 @@ const MainPage = (props) => {
           src={MobileGrid}
           style={{
             width: window.innerWidth,
-            height: screenHeight,
+            //height: screenHeight,
+            height: window.innerHeight,
             objectFit: "cover",
           }}
         />
@@ -369,7 +373,8 @@ const MainPage = (props) => {
             src={ContactMap}
             style={{
               width: window.innerWidth,
-              height: screenHeight,
+              //height: screenHeight,
+              height: window.innerHeight,
               objectFit: "cover",
             }}
             alt="Contact Background"
