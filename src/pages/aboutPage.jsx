@@ -50,7 +50,7 @@ const AboutPage = () => {
             <img
               src={Background}
               style={{
-                width: window.innerWidth,
+                width: screen.availWidth,
                 height: "500px",
                 objectFit: "cover",
                 opacity: "0.75",
