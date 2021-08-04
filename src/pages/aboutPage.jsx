@@ -27,10 +27,10 @@ const AboutPage = () => {
     slidesToScroll: 1
   }
 
-  if (typeof window !== "undefined") {
-    const screenHeight = window.innerHeight
+  useEffect(() => {
+    const screenHeight = screenHeight
     const screenWidth = screenWidth
-  }
+  })
 
   return (
     <Layout>
