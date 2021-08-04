@@ -30,7 +30,7 @@ const AboutPage = () => {
   useEffect(() => {
     const screenHeight = screenHeight
     const screenWidth = screenWidth
-  })
+  }, [])
 
   return (
     <Layout>

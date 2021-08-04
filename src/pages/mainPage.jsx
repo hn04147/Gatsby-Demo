@@ -25,11 +25,11 @@ import ChunsikDance from "../videos/chunsik_dance.mp4"
 
 const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
-  
+
   useEffect(() => {
     const screenHeight = screenHeight
     const screenWidth = screenWidth
-  })
+  }, [])
   
 
   // useEffect(() => {
