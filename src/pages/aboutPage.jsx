@@ -28,8 +28,8 @@ const AboutPage = () => {
   }
 
   useEffect(() => {
-    const screenHeight = screenHeight
-    const screenWidth = screenWidth
+    const screenHeight = window.innerHeight
+    const screenWidth = window.innerWidth
   }, [])
 
   return (

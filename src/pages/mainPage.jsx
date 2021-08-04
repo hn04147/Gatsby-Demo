@@ -27,8 +27,8 @@ const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
   useEffect(() => {
-    const screenHeight = screenHeight
-    const screenWidth = screenWidth
+    const screenHeight = window.innerHeight
+    const screenWidth = window.innerWidth
   }, [])
   
 
