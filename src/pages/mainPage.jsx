@@ -34,15 +34,15 @@ const MainPage = (props) => {
   }, [])
   
 
-  // useEffect(() => {
-  //   const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
-  //   window.addEventListener("scroll", onScroll)
-  //   // console.log(isContact)
-  //   // if (isContact) window.scrollTo({top: 10000, left: 0})
-  //   return function cleanup() {
-  //     window.removeEventListener("scroll", onScroll)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const onScroll = () => setArrowOpacity(1 - window.scrollY / (800 * 0.8))
+    window.addEventListener("scroll", onScroll)
+    // console.log(isContact)
+    // if (isContact) window.scrollTo({top: 10000, left: 0})
+    return function cleanup() {
+      window.removeEventListener("scroll", onScroll)
+    }
+  }, [])
 
   return (
     <Layout>
@@ -76,27 +76,14 @@ const MainPage = (props) => {
         }}
       >
         <div style={{ position: "absolute" }}>
-          {/* <img
+          <img
             src={KoreanPalace}
             style={{
               width: screenWidth,
-              height: screenHeight,
+              height: "900px",
               objectFit: "cover",
             }}
             alt="Main Background"
-          /> */}
-          <video
-            src={ChunsikDance}
-            style={{
-              width: screenWidth,
-              //height: screenHeight,
-              height: screenHeight,
-              objectFit: "cover",
-              autoplay: "autoplay",
-            }}
-            muted={true}
-            loop={true}
-            autoPlay={true}
           />
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -111,7 +98,7 @@ const MainPage = (props) => {
             onClick={() => {
               window.scrollTo({
                 //top: screenHeight,
-                top: screenHeight,
+                top: "900px",
                 left: 0,
                 behavior: "smooth",
               })
@@ -162,7 +149,7 @@ const MainPage = (props) => {
           style={{
             width: screenWidth,
             //height: screenHeight,
-            height: screenHeight,
+            height: "900px",
             objectFit: "cover",
           }}
         />
@@ -380,7 +367,7 @@ const MainPage = (props) => {
             style={{
               width: screenWidth,
               //height: screenHeight,
-              height: screenHeight,
+              height: "900px",
               objectFit: "cover",
             }}
             alt="Contact Background"
