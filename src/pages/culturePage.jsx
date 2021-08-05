@@ -9,19 +9,54 @@ import "slick-carousel/slick/slick-theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Footer from "../components/footer"
+import MemberCard from "../components/memberCard"
 
 import MainBackground from "../images/moon_background.jpg"
 import Icon1 from "../images/icon_1.jpg"
 import Icon2 from "../images/icon_2.jpeg"
 import Icon3 from "../images/icon_3.jpg"
 
+const memberData = [
+  {
+    imgSrc: Icon1,
+    textUp: "_DEVELOPER",
+    textDown: "Sangjin Lee"
+  },
+  {
+    imgSrc: Icon2,
+    textUp: "_TECHNICAL PARTNER",
+    textDown: "Mat Groves"
+  },
+  {
+    imgSrc: Icon3,
+    textUp: "_CREATIVE PARTNER",
+    textDown: "John Denton"
+  },
+  {
+    imgSrc: Icon1,
+    textUp: "_MANAGING DIRECTOR",
+    textDown: "James Walker"
+  },
+  {
+    imgSrc: Icon2,
+    textUp: "_DEVELOPER",
+    textDown: "Gabriele Santolini"
+  },
+  {
+    imgSrc: Icon3,
+    textUp: "_CREATIVE DIRECTOR",
+    textDown: "Tom Jennings"
+  },
+]
+
 const CulturePage = () => {
-  const settings = {
-    dots: true,
+  const slickSettings = {
+    dots: false,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    centerMode: true,
+    variableWidth: true,
   }
 
   return (
@@ -78,7 +113,9 @@ const CulturePage = () => {
         style={{
           background: "#252c39",
           width: "100%",
-          height: "500px",
+          height: "100%",
+          maringBottom: "2em",
+          paddingBottom: "4em",
         }}
       >
         <div
@@ -114,10 +151,18 @@ const CulturePage = () => {
           >
             Teamwork makes the dream work
           </h4>
-          <div>
-            <div style={{ height: "20em", width: "12em" }}>
-              <img src={Icon1} />
-            </div>
+          <div style={{ margin: "0", padding: "0" }}>
+            <Slider {...slickSettings}>
+              {/* {memberData.map((i, idx) => {
+                <MemberCard imgSrc={i.imgSrc} textUp={i.textUp} textDown={i.textDown} />
+              })} */}
+              <MemberCard imgSrc={memberData[0].imgSrc} textUp={memberData[0].textUp} textDown={memberData[0].textDown} />
+              <MemberCard imgSrc={memberData[1].imgSrc} textUp={memberData[1].textUp} textDown={memberData[1].textDown} />
+              <MemberCard imgSrc={memberData[2].imgSrc} textUp={memberData[2].textUp} textDown={memberData[2].textDown} />
+              <MemberCard imgSrc={memberData[3].imgSrc} textUp={memberData[3].textUp} textDown={memberData[3].textDown} />
+              <MemberCard imgSrc={memberData[4].imgSrc} textUp={memberData[4].textUp} textDown={memberData[4].textDown} />
+              <MemberCard imgSrc={memberData[5].imgSrc} textUp={memberData[5].textUp} textDown={memberData[5].textDown} />
+            </Slider>
           </div>
         </div>
       </div>

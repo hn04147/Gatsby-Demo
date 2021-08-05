@@ -80,7 +80,7 @@ const MainPage = (props) => {
             src={KoreanPalace}
             style={{
               width: screenWidth,
-              height: "900px",
+              height: "800px",
               objectFit: "cover",
             }}
             alt="Main Background"
@@ -98,7 +98,7 @@ const MainPage = (props) => {
             onClick={() => {
               window.scrollTo({
                 //top: screenHeight,
-                top: "900px",
+                top: "800px",
                 left: 0,
                 behavior: "smooth",
               })
