@@ -67,7 +67,7 @@ const SideMenu = ({ isClose, setIsClose }) => {
             <h3 style={{ fontFamily: "Roboto Condensed" }}>CULTURE</h3>
           </Link>
           <Link
-            to="/culturePage"
+            to="/mainPage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             onClick={() => {
               setIsClose(!isClose)
@@ -75,26 +75,13 @@ const SideMenu = ({ isClose, setIsClose }) => {
           >
             <h3 style={{ fontFamily: "Roboto Condensed" }}>LAB</h3>
           </Link>
-          {/* <Link
-            to="/mainPage"
+          <Link
+            to="/contactPage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             isContact={true}
           >
             <h3 style={{ fontFamily: "Roboto Condensed", }}>CONTACT</h3>
-          </Link> */}
-          <h3
-            style={{ fontFamily: "Roboto Condensed" }}
-            onClick={() => {
-              setIsClose(!isClose)
-              navigate("/mainPage", {
-                state: {
-                  isContact: true,
-                },
-              })
-            }}
-          >
-            CONTACT
-          </h3>
+          </Link>
         </div>
 
         <div

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useState } from "react"
+import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 
 import "./layout.css"
@@ -14,8 +15,8 @@ const Layout = ({ children }) => {
     <div style={{ position: "relative" }}>
       <div style={{ position: "relative" }}>
         {/* GOODBOY DIGITAL LOGO */}
-        <a
-          href="/"
+        <Link
+          to="/mainPage"
           style={{
             zIndex: "9",
             right: "18px",
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
           }}
         >
           <img src={GoodBoyLogo} alt="GoodBoy Digital Logo" />
-        </a>
+        </Link>
 
         {/* THREE DOTS BUTTON */}
         <div
