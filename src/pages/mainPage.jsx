@@ -71,7 +71,7 @@ const MainPage = (props) => {
           position: "relative",
           height: "100vh",
           width: "100%",
-          top: `${(150 * window.scrollY) / screenHeight}px`,
+          top: `0`,
         }}
       >
         <div style={{ position: "absolute" }}>
