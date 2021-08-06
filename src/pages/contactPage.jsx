@@ -16,11 +16,6 @@ const ContactPage = () => {
     setScreenWidth(window.innerWidth)
   }, [])
 
-  useEffect(() => {
-    setScreenHeight(window.innerHeight)
-    setScreenWidth(window.innerWidth)
-  }, [window.innerHeight, window.innerWidth])
-
   return (
     <Layout>
       <div

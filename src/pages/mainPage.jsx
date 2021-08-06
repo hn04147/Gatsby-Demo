@@ -35,11 +35,6 @@ const MainPage = (props) => {
   }, [])
 
   useEffect(() => {
-    setScreenHeight(window.innerHeight)
-    setScreenWidth(window.innerWidth)
-  }, [window.innerHeight, window.innerWidth])
-
-  useEffect(() => {
     const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
     window.addEventListener("scroll", onScroll)
     // console.log(isContact)
