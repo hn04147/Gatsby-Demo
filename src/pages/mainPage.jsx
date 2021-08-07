@@ -8,6 +8,7 @@ import Seo from "../components/seo"
 import PictureCard from "../components/pictureCard"
 import ServiceCard from "../components/serviceCard"
 import Clients from "../components/clients"
+//import ThreeJS from "three"
 
 import GoodBoyLogo from "../images/gb_logo.png"
 import EffelTower from "../images/effel_tower.jpeg"
@@ -21,13 +22,14 @@ import ContactMap from "../images/contact_map.jpeg"
 
 import MainVideo from "../videos/main_video.mp4"
 import ChunsikDance from "../videos/chunsik_dance.mp4"
+import ThreeJS from "./three"
 
 
 const MainPage = (props) => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
-  const [screenWidth, setScreenWidth] = useState(2000)
-  const [screenHeight, setScreenHeight] = useState(2000)
+  const [screenWidth, setScreenWidth] = useState(375)
+  const [screenHeight, setScreenHeight] = useState(812)
 
   useEffect(() => {
     setScreenHeight(window.innerHeight)
@@ -35,7 +37,12 @@ const MainPage = (props) => {
   }, [])
 
   useEffect(() => {
-    const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
+    setScreenHeight(window.innerHeight)
+    setScreenWidth(window.innerWidth)
+  }, [window.innerHeight, window.innerWidth])
+
+  useEffect(() => {
+    const onScroll = () => setArrowOpacity(1 - window.scrollY / (800 * 0.8))
     window.addEventListener("scroll", onScroll)
     // console.log(isContact)
     // if (isContact) window.scrollTo({top: 10000, left: 0})
@@ -71,30 +78,19 @@ const MainPage = (props) => {
           position: "relative",
           height: "100vh",
           width: "100%",
-          top: `0`,
+          //top: `${(150 * window.scrollY) / screenHeight}px`,
+          top: "0",
         }}
       >
         <div style={{ position: "absolute" }}>
-          {/* <img
+          <img
             src={KoreanPalace}
             style={{
               width: screenWidth,
-              height: screenHeight,
+              height: "800px",
               objectFit: "cover",
             }}
             alt="Main Background"
-          /> */}
-          <video
-            src={MainVideo}
-            style={{
-              width: screenWidth,
-              height: screenHeight,
-              objectFit: "cover",
-              autoplay: "autoplay",
-            }}
-            muted={true}
-            loop={true}
-            autoPlay={true}
           />
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -108,7 +104,8 @@ const MainPage = (props) => {
             }}
             onClick={() => {
               window.scrollTo({
-                top: screenHeight,
+                //top: screenHeight,
+                top: "800px",
                 left: 0,
                 behavior: "smooth",
               })
@@ -143,6 +140,8 @@ const MainPage = (props) => {
         </div>
       </div>
 
+      <ThreeJS />
+
       <div
         id="about"
         style={{
@@ -158,7 +157,8 @@ const MainPage = (props) => {
           src={MobileGrid}
           style={{
             width: screenWidth,
-            height: screenHeight,
+            //height: screenHeight,
+            height: "900px",
             objectFit: "cover",
           }}
         />
@@ -375,7 +375,8 @@ const MainPage = (props) => {
             src={ContactMap}
             style={{
               width: screenWidth,
-              height: screenHeight,
+              //height: screenHeight,
+              height: "900px",
               objectFit: "cover",
             }}
             alt="Contact Background"
@@ -384,9 +385,9 @@ const MainPage = (props) => {
         <div
           style={{
             position: "absolute",
-            top: "27%",
-            left: "10%",
-            width: "80%",
+            top: "30%",
+            left: "20%",
+            width: "60%",
             height: "100%",
             color: "#FFFFFF",
             fontFamily: "Roboto Condensed",
@@ -403,85 +404,6 @@ const MainPage = (props) => {
               margin: "1em auto 2em",
             }}
           ></div>
-          <div style={{ width: "80%", margin: "0 auto 0 auto" }}>
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: "500",
-                color: "#FFFFFF",
-                margin: ".5em auto .8em auto",
-                textAlign: "center",
-              }}
-            >
-              hello@goodboydigital.com
-            </p>
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: "500",
-                color: "#FFFFFF",
-                margin: ".5em auto .8em auto",
-                textAlign: "center",
-              }}
-            >
-              +44 20 8533 1177
-            </p>
-            <p
-              style={{
-                fontSize: "17px",
-                fontWeight: "300",
-                color: "#AEB4BB",
-                margin: "0 auto .8em auto",
-                textAlign: "center",
-              }}
-            >
-              _OUR TECH
-            </p>
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: "500",
-                color: "#FFFFFF",
-                margin: ".2em auto .8em auto",
-                textAlign: "center",
-              }}
-            >
-              PixiJS.com
-            </p>
-            <p
-              style={{
-                fontSize: "17px",
-                fontWeight: "300",
-                color: "#AEB4BB",
-                margin: "0 auto .8em auto",
-                textAlign: "center",
-              }}
-            >
-              _FIND US
-            </p>
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: "500",
-                color: "#FFFFFF",
-                margin: ".2em auto 2em auto",
-                textAlign: "center",
-              }}
-            >
-              Unit B1, Matchmakers Wharf, Homerton Road, London, E95FF, UK
-            </p>
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: "300",
-                color: "#AEB4BB",
-                margin: "0 auto 4em auto",
-                textAlign: "center",
-              }}
-            >
-              © 2021 Goodboy Digital Ltd. All Rights Reserved.
-            </p>
-          </div>
         </div>
       </div>
     </Layout>
