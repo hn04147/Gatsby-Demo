@@ -67,7 +67,7 @@ const SideMenu = ({ isClose, setIsClose }) => {
             <h3 style={{ fontFamily: "Roboto Condensed" }}>CULTURE</h3>
           </Link>
           <Link
-            to="/mainPage"
+            to="/labPage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             onClick={() => {
               setIsClose(!isClose)

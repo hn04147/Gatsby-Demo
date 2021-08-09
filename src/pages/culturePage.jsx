@@ -67,6 +67,11 @@ const CulturePage = () => {
     setScreenWidth(window.innerWidth)
   }, [])
 
+  useEffect(() => {
+    setScreenHeight(window.innerHeight)
+    setScreenWidth(window.innerWidth)
+  }, [window.innerHeight, window.innerWidth])
+
   const slickSettings = {
     dots: false,
     infinite: true,
