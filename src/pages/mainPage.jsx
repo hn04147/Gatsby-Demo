@@ -34,10 +34,6 @@ const MainPage = (props) => {
     setScreenWidth(window.innerWidth)
   }, [])
 
-  useEffect(() => {
-    setScreenHeight(window.innerHeight)
-    setScreenWidth(window.innerWidth)
-  }, [window.innerHeight, window.innerWidth])
 
   useEffect(() => {
     const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
