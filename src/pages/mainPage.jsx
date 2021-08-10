@@ -17,6 +17,7 @@ import ContactMap from "../images/contact_map.jpeg"
 import GoodBoyLogo2 from "../images/goodboy2x.png"
 
 import MainVideo from "../videos/main_video.mp4"
+import NextLevel from "../videos/next_level.mp4"
 //import ChunsikDance from "../videos/chunsik_dance.mp4"
 
 
@@ -44,7 +45,6 @@ const MainPage = () => {
     window.addEventListener("resize", handleResize)
     window.addEventListener("scroll", handleYLocation)
   }, [])
-
 
   useEffect(() => {
     const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
@@ -100,7 +100,7 @@ const MainPage = () => {
             alt="Main Background"
           /> */}
           <video
-            src={MainVideo}
+            src={NextLevel}
             style={{
               width: screenWidth,
               height: screenHeight,

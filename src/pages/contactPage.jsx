@@ -20,7 +20,6 @@ const ContactPage = () => {
     window.addEventListener("resize", handleResize)
   }, [])
 
-
   return (
     <Layout>
       <div

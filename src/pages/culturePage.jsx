@@ -72,7 +72,6 @@ const CulturePage = () => {
     window.addEventListener("resize", handleResize)
   }, [])
 
-
   const slickSettings = {
     dots: false,
     infinite: true,
