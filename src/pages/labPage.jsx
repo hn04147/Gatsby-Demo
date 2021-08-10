@@ -11,6 +11,7 @@ const LabPage = () => {
       <div style={{ width: "100%", height: "100vh", padding: "0", margin: "0", background: "black" }}>
         <div style={{ width: "100%", height: "100vh", padding: "0", margin: "0", position: "absolute" }}>
           <div style={{ color: "white", fontFamily: "Roboto Condensed" }}>
+
           </div>
           <Canvas>
               <Suspense fallback={<div>loading...</div>}>

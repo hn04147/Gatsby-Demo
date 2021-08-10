@@ -45,6 +45,7 @@ const MainPage = () => {
     window.addEventListener("scroll", handleYLocation)
   }, [])
 
+
   useEffect(() => {
     const onScroll = () => setArrowOpacity(1 - window.scrollY / (screenHeight * 0.8))
     window.addEventListener("scroll", onScroll)
