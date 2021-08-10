@@ -12,20 +12,20 @@ import { TextureLoader } from "three"
 const Earth = () => {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(TextureLoader, [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap])
 
-  const earthRef = useRef()
-  const cloudsRef = useRef()
+  // const earthRef = useRef()
+  // const cloudsRef = useRef()
 
-  useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime()
+  // useFrame(({ clock }) => {
+  //   const elapsedTime = clock.getElapsedTime()
     
-    earthRef.current.rotation.y = elapsedTime / 6
-    cloudsRef.current.rotation.y = elapsedTime / 6
-  })
+  //   earthRef.current.rotation.y = elapsedTime / 6
+  //   cloudsRef.current.rotation.y = elapsedTime / 6
+  // })
 
   return (
     <>
       <pointLight color="#F6F3EA" position={[50, 50, 50]} intensity={2} />
-      <Stars
+      {/* <Stars
         radius={300}
         depth={60}
         count={10000}
@@ -59,7 +59,7 @@ const Earth = () => {
           panSpeed={0.5}
           rotateSpeed={0.4}
         />
-      </mesh>
+      </mesh> */}
       <mesh position={[50, 50, 50]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshPhongMaterial color="red" />
