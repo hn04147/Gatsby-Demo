@@ -1,35 +1,51 @@
 import * as React from "react"
-import { useState } from "react"
-import { Link, navigate } from "gatsby"
+import { useState, useEffect } from "react"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 import "./layout.css"
-import { StaticImage } from "gatsby-plugin-image"
 import SideMenu from "../components/sidemenu"
 import GoodBoyLogo from "../images/gb_logo.png"
+import GoodBoyLogo2 from "../images/goodboy2x.png"
 
 const Layout = ({ children }) => {
   const [isClose, setIsClose] = useState(true)
+  const [screenWidth, setScreenWidth] = useState(2000)
+  const [screenHeight, setScreenHeight] = useState(2000)
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  }, [])
 
   return (
     <div style={{ position: "relative" }}>
       <div style={{ position: "relative" }}>
-        {/* GOODBOY DIGITAL LOGO */}
         <Link
           to="/mainPage"
           style={{
             zIndex: "9",
             right: "18px",
             top: "18px",
-            width: "35px",
+            width: screenWidth < 720 ? "35px" : "120px",
             height: "21px",
             position: "fixed",
           }}
         >
-          <img src={GoodBoyLogo} alt="GoodBoy Digital Logo" />
+          <img
+            src={screenWidth < 720 ? GoodBoyLogo : GoodBoyLogo2}
+            alt="GoodBoy Digital Logo"
+          />
         </Link>
 
-        {/* THREE DOTS BUTTON */}
         <div
           className="threeDotButton"
           style={{
@@ -94,12 +110,9 @@ const Layout = ({ children }) => {
             }}
           ></i>
         </div>
-        {isClose ? (<main>{children}</main>) : null}
-        
+        {isClose ? <main>{children}</main> : null}
       </div>
-      {isClose ? null : (
-        <SideMenu setIsClose={setIsClose} isClose={isClose} />
-      )}
+      {isClose ? null : <SideMenu setIsClose={setIsClose} isClose={isClose} />}
     </div>
   )
 }

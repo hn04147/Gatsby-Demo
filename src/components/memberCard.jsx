@@ -25,6 +25,7 @@ const MemberCard = ({ imgSrc, textUp, textDown }) => {
               margin: "0", 
               padding: "0" 
             }}
+            alt="membercard_img"
           />
           <div 
             style={{

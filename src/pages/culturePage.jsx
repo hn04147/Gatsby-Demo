@@ -1,8 +1,6 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -14,7 +12,6 @@ import MemberCard from "../components/memberCard"
 
 import MainVideo from "../videos/culture_main.mp4"
 import InstagramBackground from "../images/instagram_background.jpg"
-import MainBackground from "../images/moon_background.jpg"
 import Icon1 from "../images/icon_1.jpg"
 import Icon2 from "../images/icon_2.jpeg"
 import Icon3 from "../images/icon_3.jpg"
@@ -62,9 +59,17 @@ const CulturePage = () => {
   const [screenWidth, setScreenWidth] = useState(2000)
   const [screenHeight, setScreenHeight] = useState(2000)
 
-  useEffect(() => {
-    setScreenHeight(window.innerHeight)
+  const handleResize = () => {
     setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
   }, [])
 
   const slickSettings = {
@@ -250,6 +255,7 @@ const CulturePage = () => {
               padding: "0 0 .5em 0",
               borderRadius: "0px",
             }}
+            alt="instagram_background"
           />
         </div>
 
@@ -273,6 +279,7 @@ const CulturePage = () => {
               <img
                 src={TwitterLogo}
                 style={{ width: "2em", padding: "0", margin: "0" }}
+                alt="twitter_logo"
               />
               <p
                 style={{

@@ -1,27 +1,28 @@
 import * as React from "react"
-import { useState } from "react"
-import { Link, navigate } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Link } from "gatsby"
+import { useEffect, useState } from "react"
+import styled from "styled-components"
 
 const SideMenu = ({ isClose, setIsClose }) => {
+  const [screenWidth, setScreenWidth] = useState(2000)
+  const [screenHeight, setScreenHeight] = useState(2000)
 
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  }, [])
 
   return (
     <>
-      <div
-        style={{
-          background: "#11161d",
-          position: "absolute",
-          top: "0",
-          left: "0",
-          zIndex: "10",
-          width: "100%",
-          height: "100vh",
-        }}
-      >
+      <Container>
         <div
           style={{
             position: "relative",
@@ -67,7 +68,7 @@ const SideMenu = ({ isClose, setIsClose }) => {
             <h3 style={{ fontFamily: "Roboto Condensed" }}>CULTURE</h3>
           </Link>
           <Link
-            to="/mainPage"
+            to="/labPage"
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             onClick={() => {
               setIsClose(!isClose)
@@ -80,7 +81,7 @@ const SideMenu = ({ isClose, setIsClose }) => {
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             isContact={true}
           >
-            <h3 style={{ fontFamily: "Roboto Condensed", }}>CONTACT</h3>
+            <h3 style={{ fontFamily: "Roboto Condensed" }}>CONTACT</h3>
           </Link>
         </div>
 
@@ -126,9 +127,23 @@ const SideMenu = ({ isClose, setIsClose }) => {
             <h5 style={{ fontFamily: "Roboto Condensed" }}>Blog</h5>
           </Link>
         </div>
-      </div>
+      </Container>
     </>
   )
 }
 
 export default SideMenu
+
+const Container = styled.div`
+  background: #11161d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  margin-left: 0;
+
+  @media only screen and (min-width: 720px) {
+  }
+`

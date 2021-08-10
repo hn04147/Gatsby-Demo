@@ -1,7 +1,5 @@
 import * as React from "react"
-import { useState, useEffect, useRef } from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { useState, useEffect } from "react"
 import { navigate } from "@reach/router"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,28 +8,41 @@ import ServiceCard from "../components/serviceCard"
 import Clients from "../components/clients"
 
 import GoodBoyLogo from "../images/gb_logo.png"
-import EffelTower from "../images/effel_tower.jpeg"
 import MobileGrid from "../images/about-mobile-grid.png"
-import LionBackground from "../images/lion_background.jpg"
-import KoreanPalace from "../images/korean_palace.jpg"
+//import KoreanPalace from "../images/korean_palace.jpg"
 import KakaoFriends from "../images/kakao_friends.jpeg"
 import KakaoFriends2 from "../images/kakao_friends_2.jpeg"
 import KakaoFriends3 from "../images/kakao_friends_3.jpg"
 import ContactMap from "../images/contact_map.jpeg"
+import GoodBoyLogo2 from "../images/goodboy2x.png"
 
 import MainVideo from "../videos/main_video.mp4"
-import ChunsikDance from "../videos/chunsik_dance.mp4"
+//import ChunsikDance from "../videos/chunsik_dance.mp4"
 
 
-const MainPage = (props) => {
+const MainPage = () => {
   const [arrowOpacity, setArrowOpacity] = useState(1)
 
   const [screenWidth, setScreenWidth] = useState(2000)
   const [screenHeight, setScreenHeight] = useState(2000)
+  const [yScroll, setYScroll] = useState(0)
+
+  const handleYLocation = () => {
+    setYScroll(window.scrollY)
+  }
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
 
   useEffect(() => {
-    setScreenHeight(window.innerHeight)
-    setScreenWidth(window.innerWidth)
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+    window.addEventListener("scroll", handleYLocation)
   }, [])
 
   useEffect(() => {
@@ -52,7 +63,7 @@ const MainPage = (props) => {
           zIndex: "9",
           right: "18px",
           top: "18px",
-          width: "35px",
+          width: screenWidth < 720 ? "35px" : "120px",
           height: "21px",
           position: "fixed",
         }}
@@ -60,7 +71,10 @@ const MainPage = (props) => {
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         }}
       >
-        <img src={GoodBoyLogo} alt="GoodBoy Digital Logo" />
+        <img
+          src={screenWidth < 720 ? GoodBoyLogo : GoodBoyLogo2}
+          alt="GoodBoy Digital Logo"
+        />
       </div>
 
       <div
@@ -71,7 +85,7 @@ const MainPage = (props) => {
           position: "relative",
           height: "100vh",
           width: "100%",
-          top: `0`,
+          top: `${(150 * yScroll) / screenHeight}px`,
         }}
       >
         <div style={{ position: "absolute" }}>
@@ -161,6 +175,7 @@ const MainPage = (props) => {
             height: screenHeight,
             objectFit: "cover",
           }}
+          alt="mobile_grid"
         />
         <div
           style={{

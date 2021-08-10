@@ -1,10 +1,7 @@
 import * as React from "react"
-import { useState, useEffect, useRef } from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { useState, useEffect } from "react"
 import { navigate } from "@reach/router"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import Footer from "../components/footer"
 import ServiceCard from "../components/serviceCard"
 import Clients from "../components/clients"
@@ -27,11 +24,20 @@ const AboutPage = () => {
     slidesToScroll: 1
   }
 
-  const [screenWidth, setScreenWidth] = useState(375)
-  const [screenHeight, setScreenHeight] = useState(812)
-  useEffect(() => {
-    setScreenHeight(window.innerHeight)
+  const [screenWidth, setScreenWidth] = useState(2000)
+  const [screenHeight, setScreenHeight] = useState(2000)
+
+  const handleResize = () => {
     setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
   }, [])
 
   return (
@@ -249,7 +255,7 @@ const AboutPage = () => {
             discover what their needs are and create spaces in which those needs
             can be met.
           </p>
-          <img src={KakaoFriends3} style={{ width: "96%", marginLeft: "2%" }} />
+          <img src={KakaoFriends3} style={{ width: "96%", marginLeft: "2%" }} alt="kakao_friend_3"/>
         </div>
       </div>
 
@@ -283,6 +289,7 @@ const AboutPage = () => {
               <img
                 src={Icon1}
                 style={{ height: "24%", width: "24%", margin: "0 38% 1em 38%" }}
+                alt="icon1"
               />
               <p style={{ textAlign: "center" }}>
                 These guys stretch the boundaries of what's possible on the web.
@@ -300,6 +307,7 @@ const AboutPage = () => {
               <img
                 src={Icon2}
                 style={{ height: "24%", width: "24%", margin: "0 38% 1em 38%" }}
+                alt="icon2"
               />
               <p style={{ textAlign: "center" }}>
                 These guys stretch the boundaries of what's possible on the web.
@@ -316,6 +324,7 @@ const AboutPage = () => {
               <img
                 src={Icon3}
                 style={{ height: "24%", width: "24%", margin: "0 38% 1em 38%" }}
+                alt="icon3"
               />
               <p style={{ textAlign: "center" }}>
                 Goodboy are an innovative team who seem to be able to seamlessly

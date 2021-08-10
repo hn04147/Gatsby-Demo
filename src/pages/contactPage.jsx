@@ -1,19 +1,23 @@
 import * as React from "react"
-import { useState, useEffect, useRef } from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { navigate } from "@reach/router"
+import { useState, useEffect } from "react"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import ContactMap from "../images/contact_map.jpeg"
 
 const ContactPage = () => {
   const [screenWidth, setScreenWidth] = useState(2000)
   const [screenHeight, setScreenHeight] = useState(2000)
 
-  useEffect(() => {
-    setScreenHeight(window.innerHeight)
+  const handleResize = () => {
     setScreenWidth(window.innerWidth)
+    setScreenHeight(window.innerHeight)
+  }
+
+  useEffect(() => {
+    handleResize()
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
   }, [])
 
   return (
